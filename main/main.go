@@ -19,17 +19,19 @@ func main() {
 	viper.BindEnv("port", "GOPORT")
 	viper.BindEnv("static", "GOSTATIC")
 
-	http.HandleFunc("/", HandleRoot)
+	http.HandleFunc("/", HandleCV)
 	http.HandleFunc("/css/", HandleCSS)
 
 	fmt.Printf("listening on %v\n", viper.GetString("port"))
 	http.ListenAndServe(viper.GetString("port"), nil)
 }
 
-func HandleRoot(w http.ResponseWriter, r *http.Request) {
+func HandleCV(w http.ResponseWriter, r *http.Request) {
 	static := viper.GetString("static")
 
-	t, err := template.ParseFiles(path.Join(static, "template/cv.template"))
+	t, err := template.ParseFiles(
+		path.Join(static, "template/cv.template"),
+	)
 
 	cv, err := ioutil.ReadFile(path.Join(static, "markdown/cv.md"))
 	if err != nil {
@@ -38,9 +40,22 @@ func HandleRoot(w http.ResponseWriter, r *http.Request) {
 	}
 	cv = blackfriday.Run(cv, blackfriday.WithNoExtensions())
 
-	if err := t.Execute(w, struct {
+	footer, err := ioutil.ReadFile(path.Join(static, "markdown/footer.md"))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	footer = blackfriday.Run(footer, blackfriday.WithNoExtensions())
+
+	data := struct {
 		Content template.HTML
-	}{template.HTML(string(cv))}); err != nil {
+		Footer  template.HTML
+	}{
+		template.HTML(string(cv)),
+		template.HTML(string(footer)),
+	}
+
+	if err := t.Execute(w, data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

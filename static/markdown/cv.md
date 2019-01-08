@@ -1,9 +1,9 @@
  
-# Jimmy Tang 
+# JIMMY TANG 
 
 ### Full stack software engineer with a passion for simplistic design, arts, and commercial software applications.
 
-E-mail:ex[dot]jimsk[at]gmail[dot]com – [Github](https://github.com/tjimsk)
+ex[dot]jimsk[at]gmail[dot]com – [Github](https://github.com/tjimsk)
 
 ## EXPERIENCE
 #### ACTELLIGENT LTD., SYSTEMS ARCHITECT – Hong Kong, April 2018 to August 2018

@@ -1,15 +1,9 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.css"> -->
-
 </head>
-
 <body>
-    <id id="container">
-        {{.Content}}
-    </id>
+    <id id="container">{{.Content}}</id>
 </body>
-
 <footer>
-		
+	{{.Footer}}
 </footer>

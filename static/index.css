@@ -1,4 +1,4 @@
-
+/* targets entire site */
 body {
     font-family: "Avenir Next", Helvetica, Arial, sans-serif;
     padding:1em;
@@ -125,3 +125,55 @@ pre > code {
 .send { color:#77bb77; }
 .server { color:#7799bb; }
 .error { color:#AA0000; }
+
+/* targets index.html */
+#content {
+    margin-bottom: 20px;
+}
+
+/* targets header.html */
+#header {}
+
+#header .title {
+    color: #000000;
+    font-size: 28pt;
+    font-weight: bold;
+}
+
+#header .links {
+    font-size: 14px;
+}
+
+#header .links ul {
+    -webkit-padding-start: 0px;
+    margin: 5px 0px;
+}
+
+#header .links ul li {
+    display: inline;
+    margin: 0px 5px;
+}
+
+/* targets footer.html */
+#timestamp {
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: lighter;
+    margin: 10px 5px 20px 5px;
+}
+
+#footer {
+    min-height: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

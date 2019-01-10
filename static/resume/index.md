@@ -1,24 +1,20 @@
- 
-# JIMMY TANG 
-
-### Full stack software engineer with a passion for simplistic design, arts, and commercial software applications.
-
-ex[dot]jimsk[at]gmail[dot]com – [Github](https://github.com/tjimsk)
+## PROFILE
+Full stack software engineer with a passion for simplistic design, arts, and commercial software applications.
 
 ## EXPERIENCE
-#### ACTELLIGENT LTD., SYSTEMS ARCHITECT – Hong Kong, April 2018 to August 2018
+#### [ACTELLIGENT LTD., SYSTEMS ARCHITECT – Hong Kong, April 2018 to August 2018](/resume/actelligent)
 - Gathered business and technical requirements.
 - Implemented backend systems.
 - Designed application wireframes and oversee outsource mobile development project.
 - Designed and documented systems for compliance with the SFC's IT systems' data security and privacy standards.
 
-#### PINNACLE HOLDINGS, SENIOR SOFTWARE ENGINEER – Hong Kong, November 2017 to January 2018
+#### [PINNACLE HOLDINGS LTD., SENIOR SOFTWARE ENGINEER – Hong Kong, November 2017 to February 2018](/resume/pinnacle)
 - Set up CI/CD pipeline – Jenkins, Kubernetes.
 - Set up Webpack, ESLint, StyleLint configurations for multiple environments.
 - Implemented frontend scaffold – React, redux and react-router.
 - Designed and implemented single node Kubernetes cluster to serve local frontend system requests.
 
-#### SURE PROMISE, SOFTWARE ENGINEER – Hong Kong, May 2017 to October 2017
+#### [SURE PROMISE, SOFTWARE ENGINEER – Hong Kong, May 2017 to October 2017](/resume/surepromise)
 - Overhauled frontend app from Django templates and jQuery – React.
 - Refactored Django backend following thorough analyses of eCommerce business
 processes.
@@ -26,7 +22,7 @@ processes.
 - Implemented multiple user experience improvements.
 - Maintained existing Django web applications during system redesign.
 
-#### FREELANCE SOFTWARE DEVELOPER – Hong Kong, November 2013 to April 2017
+#### FREELANCE SOFTWARE DEVELOPER – Hong Kong, December 2013 to April 2017
 - Implemented web APIs, mostly by applying REST/CRUD design – Ruby on Rails.
 - Developed dynamic frontends – Go templates, React, jQuery, Websocket.
 - Designed and maintained database models.
@@ -34,7 +30,7 @@ processes.
 - Built prototypes for multiple mobile applications.
 - Released multiple iOS apps to Apple App Store.
 
-#### LASERFICHE, SYSTEMS ENGINEER – Long Beach, CA, January 2007 to November 2013
+#### [LASERFICHE, SYSTEMS ENGINEER – Long Beach, CA, January 2005 to November 2013](/resume/laserfiche)
 - Implemented, consulted for various ECM processes in financial, governmental and commercial sectors.
 - Analysed organisations business processes and devised solutions for streamlining and auditing data operations.
 - Designed, implemented multiple web forms, backend workflows and notification systems.

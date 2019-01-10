@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
 	"path"
+	"strings"
 
+	"github.com/djherbis/times"
 	"github.com/russross/blackfriday"
 	"github.com/spf13/viper"
 )
@@ -14,46 +18,120 @@ import (
 func main() {
 	fmt.Println("jimsk starting...")
 
+	viper.SetEnvPrefix("app")
+
 	viper.SetDefault("port", ":80")
 	viper.SetDefault("static", "../static")
-	viper.BindEnv("port", "GOPORT")
-	viper.BindEnv("static", "GOSTATIC")
 
-	http.HandleFunc("/", HandleCV)
-	http.HandleFunc("/css/", HandleCSS)
+	viper.BindEnv("port")
+	viper.BindEnv("static")
 
-	fmt.Printf("listening on %v\n", viper.GetString("port"))
+	http.HandleFunc("/", HandleContent)
+	http.HandleFunc("/index.css", HandleCSS)
+	http.HandleFunc("/index.js", HandleJS)
+
+	log.Printf("port=%v", viper.GetString("port"))
+	log.Printf("static=%v", viper.GetString("static"))
+
 	http.ListenAndServe(viper.GetString("port"), nil)
 }
 
-func HandleCV(w http.ResponseWriter, r *http.Request) {
-	static := viper.GetString("static")
+func HandleContent(w http.ResponseWriter, r *http.Request) {
+	log.Println("requesting", r.URL.Path)
+
+	f, err := markdownFile(r)
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		return
+	}
+
+	renderResponse(w, f)
+}
+
+func markdownFile(r *http.Request) (md string, err error) {
+	root := viper.GetString("static")
+	segs := []string{}
+
+	for _, p := range strings.Split(r.URL.Path, "/") {
+		if len(p) == 0 {
+			continue
+		}
+
+		lookup := path.Join(root, strings.Join(segs, "/"), p)
+
+		// check lookup as directory
+		if _, err := os.Stat(lookup); err == nil {
+			segs = append(segs, p)
+			log.Printf("\tsegs=%v", segs)
+			continue
+		}
+
+		// check lookup as markdown file
+		if _, err := os.Stat(fmt.Sprintf("%v.md", lookup)); err == nil {
+			segs = append(segs, p)
+			md = path.Join(root, strings.Join(segs, "/")+".md")
+			log.Printf("\tsegs=%v;md=%v", segs, md)
+			return md, nil
+		}
+
+		// fallback: lookup is no longer valid
+		md = path.Join(root, strings.Join(segs, "/"), "index.md")
+		log.Printf("\tsegs=%v;p=%v (404)", segs, p)
+
+		return md, fmt.Errorf("resource just doesn't exist")
+	}
+
+	// loop ended on a directory so try returning the index.md inside that directory
+	if len(segs) > 0 {
+		md = path.Join(root, strings.Join(segs, "/"), "index.md")
+
+		if _, err := os.Stat(md); err == nil {
+			log.Printf("\tsegs=%v;=>md=%v", segs, md)
+			return md, nil
+		}
+	}
+
+	// fallback: return resume
+	md = path.Join(root, "resume/index.md")
+	log.Printf("\tsegs=%v;=>md=%v", segs, md)
+	return
+}
+
+func renderResponse(w http.ResponseWriter, markdownFile string) {
+	log.Println("\t\trendering", markdownFile)
+
+	root := viper.GetString("static")
 
 	t, err := template.ParseFiles(
-		path.Join(static, "template/cv.template"),
+		path.Join(root, "index.html"),
+		path.Join(root, "header.html"),
+		path.Join(root, "footer.html"),
 	)
 
-	cv, err := ioutil.ReadFile(path.Join(static, "markdown/cv.md"))
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	cv = blackfriday.Run(cv, blackfriday.WithNoExtensions())
-
-	footer, err := ioutil.ReadFile(path.Join(static, "markdown/footer.md"))
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	footer = blackfriday.Run(footer, blackfriday.WithNoExtensions())
-
 	data := struct {
-		Content template.HTML
-		Footer  template.HTML
-	}{
-		template.HTML(string(cv)),
-		template.HTML(string(footer)),
+		Header       template.HTML
+		Content      template.HTML
+		DateModified string
+		Footer       template.HTML
+	}{}
+
+	// read content markdown
+	content, err := ioutil.ReadFile(markdownFile)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
 	}
+	data.Content = template.HTML(blackfriday.Run(content, blackfriday.WithNoExtensions()))
+
+	// get content modification date
+	// fi, err := os.Lstat(markdownFile)
+	ti, err := times.Stat(markdownFile)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	}
+
+	data.DateModified = ti.ModTime().Format("01/02/06")
 
 	if err := t.Execute(w, data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -62,9 +140,11 @@ func HandleCV(w http.ResponseWriter, r *http.Request) {
 }
 
 func HandleCSS(w http.ResponseWriter, r *http.Request) {
-	static := viper.GetString("static")
-
 	w.Header().Add("Cache-Control", "no-cache")
+	http.ServeFile(w, r, path.Join(viper.GetString("static"), "index.css"))
+}
 
-	http.ServeFile(w, r, path.Join(static, r.URL.Path))
+func HandleJS(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Cache-Control", "no-cache")
+	http.ServeFile(w, r, path.Join(viper.GetString("static"), "index.js"))
 }

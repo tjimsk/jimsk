@@ -57,5 +57,5 @@ The following summarizes some of my achievements:
 - Produced ECM system specifications in response to RFP's.
 
 <a name="reasonforleaving"></a>
-### Reason For Leaving
-I wanted to devote more time in building apps and doing web development outside, and I wanted to explore non enterprise environments.
+<!-- ### Reason For Leaving
+I wanted to devote more time in building apps and doing web development outside, and I wanted to explore non enterprise environments. -->

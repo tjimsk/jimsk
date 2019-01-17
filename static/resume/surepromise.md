@@ -37,5 +37,5 @@ The code that implemented the existing frontend used Django templates to return 
 The entire project consisting of multiple Django apps mapping to different stages of the purchasing process, knowing which app contains the source of truth of data types shared across apps was often a problem and source for bugs.  I helped refactor the database and all the related methods from a dozen of existing apps.
 
 <a name="reasonforleaving"></a>
-### Reason For Leaving
-I wanted to explore different development team environments in Hong Kong.  
+<!-- ### Reason For Leaving
+I wanted to explore different development team environments in Hong Kong.   -->

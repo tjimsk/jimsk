@@ -35,7 +35,8 @@ In summary, my technical responsibilities were as follows:
 - Develop web based frontend
 - Review and analyze multiple vendors' products for systems integration
 
-<a name="reasonforleaving"></a>
-### Reason For Leaving
-I wanted to devote more time on solving implementation issues and further develop my technical skills.  I felt the product roadmap wasn't ready.
 
+<a name="reasonforleaving"></a>
+<!-- ### Reason For Leaving
+I wanted to devote more time on solving implementation issues and further develop my technical skills.  I felt the product roadmap wasn't ready.
+</comment> -->

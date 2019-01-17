@@ -14,8 +14,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o $APP_BIN -a -installsuffix cgo $APP_DIR
 
 FROM alpine:3.4 as image
 ENV GOBIN /go/bin
-ENV APP_STATIC /etc/jimsk/static
 ENV APP_BIN $GOBIN/jimsk
+# for most cases no need to override 
+ENV APP_STATIC /etc/jimsk/static
 ENV APP_PORT :80
 
 COPY static $APP_STATIC

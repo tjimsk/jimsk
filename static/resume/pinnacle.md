@@ -42,5 +42,6 @@ I implemented a single page web app using react-router and redux, which was idea
 The webpack configuration included applying eslint and stylelint standardization rules.
 
 <a name="reasonforleaving"></a>
-### Reason For Leaving
+<!-- ### Reason For Leaving
 The language barrier with the Products team based in the Philippines (Mandarin only) was too big to continue leading the frontend development.
+ -->

@@ -26,7 +26,8 @@ func main() {
 	viper.BindEnv("port")
 	viper.BindEnv("static")
 
-	http.HandleFunc("/", HandleContent)
+	http.HandleFunc("/", HandleMarkdown)
+	http.HandleFunc("/assets/", HandleAssets)
 	http.HandleFunc("/index.css", HandleCSS)
 	http.HandleFunc("/index.js", HandleJS)
 
@@ -36,7 +37,7 @@ func main() {
 	http.ListenAndServe(viper.GetString("port"), nil)
 }
 
-func HandleContent(w http.ResponseWriter, r *http.Request) {
+func HandleMarkdown(w http.ResponseWriter, r *http.Request) {
 	log.Println("requesting", r.URL.Path)
 
 	f, err := markdownFile(r)
@@ -46,6 +47,11 @@ func HandleContent(w http.ResponseWriter, r *http.Request) {
 	}
 
 	renderResponse(w, f)
+}
+
+func HandleAssets(w http.ResponseWriter, r *http.Request) {
+	log.Println("requesting asset", r.URL.Path)
+	http.ServeFile(w, r, path.Join(viper.GetString("static"), r.URL.Path))
 }
 
 func markdownFile(r *http.Request) (md string, err error) {

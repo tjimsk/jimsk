@@ -1,86 +1,102 @@
-## PROFILE
-Full stack software engineer with a passion for simplistic design, arts, and commercial software applications.
-
 ## EXPERIENCE
-#### [ACTELLIGENT LTD., SYSTEMS ARCHITECT – Hong Kong, April 2018 to August 2018](/resume/actelligent)
-- Gathered business and technical requirements.
-- Implemented backend systems.
-- Designed application wireframes and oversee outsource mobile development project.
-- Designed and documented systems for compliance with the SFC's IT systems' data security and privacy standards.
+#### ACTELLIGENT LTD.
+##### VP of Engineering <span class="period">7/2018 – 9/2018</span>
+##### Systems Architect <span class="period">5/2018 – 6/2018</span>
+##### Software Engineer <span class="period">4/2018</span>
+- Contributed to product design and developed wireframes for web and mobile apps.
+- Developed the backend and frontend services and implemented CD pipeline. 
+- Designed specifications and integration tests with vendor applications.
+- Designed specifications for content management system per SFC security guidelines.
+- Coordinated with outsource mobile development team.
 
-#### [PINNACLE HOLDINGS LTD., SENIOR SOFTWARE ENGINEER – Hong Kong, November 2017 to February 2018](/resume/pinnacle)
-- Set up CI/CD pipeline – Jenkins, Kubernetes.
-- Set up Webpack, ESLint, StyleLint configurations for multiple environments.
-- Implemented frontend scaffold – React, redux and react-router.
-- Designed and implemented single node Kubernetes cluster to serve local frontend system requests.
+<ul class="technologies">
+<li>Go</li>
+<li>PostgreSQL</li>
+<li>Webpack</li>
+<li>ReactJS</li>
+<li>Docker</li>
+<li>Kubernetes</li>
+<li>Drone</li>
+<li>React Native</li>
+</ul>
 
-#### [SURE PROMISE, SOFTWARE ENGINEER – Hong Kong, May 2017 to October 2017](/resume/surepromise)
-- Overhauled frontend app from Django templates and jQuery – React.
-- Refactored Django backend following thorough analyses of eCommerce business
-processes.
-- Implemented optimisations on query performance and user interface loading times.
-- Implemented multiple user experience improvements.
-- Maintained existing Django web applications during system redesign.
+#### SURE PROMISE COMPANY LTD.
+##### Software Engineer <span class="period">4/2017 – 10/2017</span>
+- Redesigned frontend and backend API endpoints for dashboard app in ReactJS.
+- Consolidated Django apps leading to increased productivity and numerous bug fixes.
+- Maintained and implemented new features on existing Django apps during system redesign.
+- Conducted numerous refactoring on and wrote unit tests for backend and frontend codebase.
 
-#### FREELANCE SOFTWARE DEVELOPER – Hong Kong, December 2013 to April 2017
-- Implemented web APIs, mostly by applying REST/CRUD design – Ruby on Rails.
-- Developed dynamic frontends – Go templates, React, jQuery, Websocket.
-- Designed and maintained database models.
-- Designed wireframes and storyboards.
-- Built prototypes for multiple mobile applications.
-- Released multiple iOS apps to Apple App Store.
+<ul class="technologies">
+<li>Python</li>
+<li>Django</li>
+<li>ReactJS</li>
+<li>jQuery</li>
+<li>MySQL</li>
+</ul>
 
-#### [LASERFICHE, SYSTEMS ENGINEER – Long Beach, CA, January 2005 to November 2013](/resume/laserfiche)
-- Implemented, consulted for various ECM processes in financial, governmental and commercial sectors.
-- Analysed organisations business processes and devised solutions for streamlining and auditing data operations.
-- Designed, implemented multiple web forms, backend workflows and notification systems.
-- Conducted multiple ECM migrations and database consolidation from legacy systems.
-- Configured, maintained application servers, networks, databases.
-- Conducted escalation troubleshooting for VIP customers. Systems profiling, applications and server optimisations.
-- Designed and implemented client tools.
-- Produced ECM system specifications in response to RFP's.
+#### FREELANCER <span class="period">2014 – 2016</span>
+- Developed POCs of iOS mobile apps with backend APIs.
+- Developed web frontends using ERB, Go template/HTML, React, jQuery.
+- Developed iOS apps on App Store for iOS7/8 written in Objective-C.
+
+<ul class="technologies">
+<li>Ruby</li>
+<li>Ruby on Rails</li>
+<li>Objective-C</li>
+<li>PostgreSQL</li>
+<li>ReactJS</li>
+</ul>
+
+#### LASERFICHE COMPULINK
+##### Systems Engineer 		<span class="period">2013</span>
+##### Solutions Engineer 	<span class="period">2012</span>
+##### Technical Engineer 	<span class="period">2009 – 2011</span>
+##### Intern 				<span class="period">2007 – 2008</span>
+- Designed multiple ECM systems for large organizations across industries.  Clients included Wells Fargo, Time Warner Cable, Bank of China, Royal London Group, etc.
+- Conducted data migrations from multiple RDBMS. Configured, maintained application servers, networks, databases.
+- Lead escalation support for VIP customers. Performed systems optimizations.
+- Wrote specifications for new ECM projects, including state of Nebraska and state New Hampshire.
+
+<ul class="technologies">
+<li>.NET</li>
+<li>C#</li>
+<li>Visual Basic</li>
+<li>MSSQL</li>
+<li>Javascript</li>
+</ul>
 
 ## EDUCATION
-- BACHELOR OF SCIENCE IN CIVIL ENGINEERING, 2009
+
+##### BACHELOR OF SCIENCE IN CIVIL ENGINEERING <span class="period">2009</span>
 California Polytechnic University, Pomona, CA, USA
-- HIGH SCHOOL DEGREE IN LATIN MATHEMATICS, 2002
+
+##### HIGH SCHOOL DEGREE IN LATIN MATHEMATICS <span class="period">2002</span>
 Athénée Robert Catteau, Brussels, Belgium
 
-## TECHNICAL SKILLS
+## SKILLS
 #### PROGRAMMING LANGUAGES
 - Go
-- Javascript ES6
+- Javascript
 - Python
 - Ruby 
 - Bash 
 - Objective-C 
+- Swift
 - SQL 
-- C# 
 
 #### LIBRARIES/FRAMEWORKS
 - React 
-- Cocoa 
+- Cocoa (iOS 7/8)
 - jQuery 
-- Ruby on Rails 
+- Ruby on Rails (version 4)
 - Django 
-- .NET 
 
-#### DATABASE
-- PostgreSQL 
-- MySQL 
-- SQLite 
-- MSSQL 
-- Redis 
-
-#### DEPLOYMENT TOOLS
+#### DEVOPS TOOLS
 - Docker 
 - Kubernetes 
-- Istio 
-- Helm 
 - Jenkins 
 - Drone 
-
-#### IAAS / PAAS
 - GCP 
 - Digitalocean 
 - Heroku 

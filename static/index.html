@@ -1,10 +1,13 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	{{template "header.html" .}}
-	<div id="content">{{.Content}}</div>
-	{{template "footer.html" .}}
+	<div id="container">
+		{{template "header.html" .}}
+		<div id="content">{{.Content}}</div>
+		{{template "footer.html" .}}
+	</div>
 </body>
 <footer>
 	<script src="/index.js"></script>

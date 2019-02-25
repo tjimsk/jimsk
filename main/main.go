@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/djherbis/times"
-	"github.com/russross/blackfriday"
+	bf "github.com/russross/blackfriday"
 	"github.com/spf13/viper"
 )
 
@@ -127,7 +127,10 @@ func renderResponse(w http.ResponseWriter, markdownFile string) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
-	data.Content = template.HTML(blackfriday.Run(content, blackfriday.WithNoExtensions()))
+	data.Content = template.HTML(bf.Run(
+		content,
+		bf.WithExtensions(bf.CommonExtensions),
+	))
 
 	// get content modification date
 	// fi, err := os.Lstat(markdownFile)
